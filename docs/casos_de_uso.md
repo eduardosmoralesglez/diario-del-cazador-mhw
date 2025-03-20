@@ -42,8 +42,13 @@
 **Descripción Visual**: A continuación se representa el diagrama de casos de uso, con los actores y los casos de uso, y las relaciones de asociación, inclusión y extensión.
 
 ---
+
+![](../images/diagrama-de-clases.png)
+
+
 ***(En proceso)***
 
+---
 
 
 Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayuda a visualizar cómo interactúan los actores (Cazadores, Investigadores y Sistema de Notificaciones) con las funcionalidades clave.
