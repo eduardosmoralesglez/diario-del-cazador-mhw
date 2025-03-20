@@ -62,7 +62,7 @@ Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayud
 |  Actor | Cazador |
 |---|---|
 | Descripción  | Usuario normal del diario, puede buscar información de los montruos y solicitar cacerias de monstruos  |
-| Características  | _Características que describen al actor_ |
+| Características  | puede buscar información de los montruos y solicitar cacerias de monstruos |
 | Relaciones | _Relaciones que tiene con otros actores. Básicamente cuando realiza las mismas acciones que otro actor._  |
 | Referencias | _Que casos de uso realiza_ |   
 |  Notas |  _Notas adicionales_ |
@@ -91,7 +91,7 @@ Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayud
 
 ### *Casos de Uso*
 
-|  Caso de Uso	CU | XXX  |
+|  Caso de Uso	CU | Buscar Monstruo |
 |---|---|
 | Fuentes  | _Documento que sustenta el caso de uso_  |
 | Actor  |  _Actores que participan en el caso de uso_ |
@@ -104,7 +104,7 @@ Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayud
 | Autor  | _Quien desarrolla la especificación del actor_ |
 |Fecha | _Fecha de la especificación_ |
 
-|  Caso de Uso	CU | XXX  |
+|  Caso de Uso	CU | Solicitar Caceria |
 |---|---|
 | Fuentes  | _Documento que sustenta el caso de uso_  |
 | Actor  |  _Actores que participan en el caso de uso_ |
@@ -117,7 +117,7 @@ Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayud
 | Autor  | _Quien desarrolla la especificación del actor_ |
 |Fecha | _Fecha de la especificación_ |
 
-|  Caso de Uso	CU | XXX  |
+|  Caso de Uso	CU | Registrar Caceria |
 |---|---|
 | Fuentes  | _Documento que sustenta el caso de uso_  |
 | Actor  |  _Actores que participan en el caso de uso_ |
@@ -130,7 +130,7 @@ Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayud
 | Autor  | _Quien desarrolla la especificación del actor_ |
 |Fecha | _Fecha de la especificación_ |
 
-|  Caso de Uso	CU | XXX  |
+|  Caso de Uso	CU | Enviar Notificación |
 |---|---|
 | Fuentes  | _Documento que sustenta el caso de uso_  |
 | Actor  |  _Actores que participan en el caso de uso_ |
@@ -143,7 +143,7 @@ Este modelo de diagrama de casos de uso para el sistema diario del cazador, ayud
 | Autor  | _Quien desarrolla la especificación del actor_ |
 |Fecha | _Fecha de la especificación_ |
 
-|  Caso de Uso	CU | XXX  |
+|  Caso de Uso	CU | Recordatorio Investigación |
 |---|---|
 | Fuentes  | _Documento que sustenta el caso de uso_  |
 | Actor  |  _Actores que participan en el caso de uso_ |
