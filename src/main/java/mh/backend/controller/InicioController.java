@@ -1,12 +1,12 @@
 package mh.backend.controller;
 
-import mh.backend.abstracto.controladorAbstracto;
+import mh.backend.abstracto.ControladorAbstracto;
 import mh.config.ConfigManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 
-public class InicioController extends controladorAbstracto{
+public class InicioController extends ControladorAbstracto{
 
     private final String pathFichero = "src/main/resources/properties/";
     private final String ficheroStr = "idioma-";
@@ -14,6 +14,7 @@ public class InicioController extends controladorAbstracto{
     @FXML
     private Text textInicio;
 
+    @FXML
     private ComboBox comboIdioma;
 
     @FXML

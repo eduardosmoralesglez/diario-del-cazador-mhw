@@ -84,7 +84,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>frontend.view.PrincipalApplication</mainClass>
+                    <mainClass>mh.frontend.view.PrincipalApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
