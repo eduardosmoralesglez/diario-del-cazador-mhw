@@ -43,7 +43,7 @@
 
 ---
 
-![](../images/diagrama-de-clases.drawio.png)
+![](../images/diagrama-de-casos-de-uso.drawio.png)
 
 
 ***(En proceso)***
