@@ -1,61 +1,95 @@
 package es.ies.puerto.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import es.ies.puerto.config.ConfigManager;
-import es.ies.puerto.controller.abstractas.AbstractController;
+import es.ies.puerto.model.FileJson;
+import es.ies.puerto.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class RegistroController extends AbstractController {
-    
-    @FXML TextField textFiledUsuario;
+public class RegistroController extends ControladorAbstracto{
 
-    @FXML Text textMensaje;
+    FileJson fileJson;
 
-    @FXML Button buttonRegistrar;
-
-    @FXML PasswordField textFieldPassword;
-
-    @FXML PasswordField textFieldPasswordRepit;
-
-
-    @FXML
-    private Text textUsuario;
-
-    @FXML
-    private Text textContrasenia;
+    public RegistroController() {
+        fileJson = new FileJson();
+    }
 
     @FXML
     public void initialize() {
-        textUsuario.setText(ConfigManager.ConfigProperties.getProperty("textUsuario"));
-        textContrasenia.setText(ConfigManager.ConfigProperties.getProperty("textContrasenia"));
+        cambiarIdioma();
     }
-
-    /**
-    public void postConstructor() {
-        textUsuario.setText(getPropertiesIdioma().getProperty("textUsuario"));
-        textContrasenia.setText(getPropertiesIdioma().getProperty("textContrasenia"));
-    }
-    **/
 
     @FXML
-    protected void onClickRegistar()  {
+    private TextField textFieldUsuario;
 
-        if (textFieldPassword == null ||  textFieldPassword.getText().isEmpty() 
-            || textFieldPasswordRepit == null || textFieldPasswordRepit.getText().isEmpty()) {
+    @FXML
+    private PasswordField textFieldPassword;
+
+    @FXML
+    private PasswordField textFieldPasswordRepetir;
+
+    @FXML
+    private TextField textFieldNombre;
+
+    @FXML
+    private TextField textFieldEmail;
+
+    @FXML
+    private TextField textFieldEmailRepetir;
+
+    @FXML
+    private Text textMensaje;
+
+    @FXML
+    private Button buttonRegistrar;
+
+    @FXML
+    private Button onRegistroBackToLoginButton;
+
+    @FXML
+    protected void onClickRegistrar() {
+        
+        if (textFieldUsuario == null || textFieldUsuario.getText().isEmpty()) {
+            textMensaje.setText("¡El usuario no puede ser nulo o vacio!");
+            return;
+        }
+
+        if (textFieldPassword == null || textFieldPassword.getText().isEmpty() || 
+        textFieldPasswordRepetir == null || textFieldPasswordRepetir.getText().isEmpty()) {
             textMensaje.setText("¡El password no puede ser nulo o vacio!");
             return;
         }
 
-        if (textFieldPassword.getText().equals(textFieldPasswordRepit.getText())) {
-            textMensaje.setText("¡El password es correcto");
+        if (!textFieldPassword.getText().equals(textFieldPasswordRepetir.getText())) {
+            textMensaje.setText("¡El password no es correcto!");
             return;
         }
 
-        textMensaje.setText("Valores no validos");
+        if (textFieldNombre == null || textFieldNombre.getText().isEmpty()) {
+            textMensaje.setText("¡El nombre no puede ser nulo o vacio!");
+            return;
+        }
+
+        if (textFieldEmail == null || textFieldEmail.getText().isEmpty() ||
+        textFieldEmailRepetir == null || textFieldEmailRepetir.getText().isEmpty()) {
+            textMensaje.setText("¡El Email no puede ser nulo o vacio!");
+            return;
+        }
+
+        if (!textFieldEmail.getText().equals(textFieldEmailRepetir.getText())) {
+            textMensaje.setText("¡El Email no es correcto!");
+            return;
+        }
+
+        Usuario usuario = new Usuario(textFieldUsuario.getText(), textFieldPassword.getText(), textFieldNombre.getText(), textFieldEmail.getText());
+        fileJson.add(usuario);
+        textMensaje.setText("¡Valores validos!");
+    }
+
+    @FXML
+    protected void onClickBackToLogin() {
+        openPantalla(onRegistroBackToLoginButton, "login.fxml", "Pantalla de Login");
     }
 }

@@ -2,7 +2,6 @@ package es.ies.puerto.config;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
@@ -13,9 +12,7 @@ public class ConfigManager {
         static String path;
 
         private static final Properties properties = new Properties();
-
         static {
-            
            
         }
 
@@ -27,7 +24,6 @@ public class ConfigManager {
         }
 
         public static void setPath(String rutaPath) {
-            System.out.println("Dentro del setPath");
             File file = new File(rutaPath);
 
             if (!file.exists() || !file.isFile()) {
@@ -35,8 +31,7 @@ public class ConfigManager {
             }
             path = rutaPath;
             try {
-                System.out.println("Dentro del ConfigProperties");
-
+                
                 FileInputStream input = new FileInputStream(path);
                 InputStreamReader isr = new InputStreamReader(input, "UTF-8");
                 properties.load(isr);

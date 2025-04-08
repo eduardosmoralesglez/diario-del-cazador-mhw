@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="498.0" prefWidth="434.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.controller.RegistroController">
+<VBox alignment="CENTER" prefHeight="328.0" prefWidth="349.0" spacing="5.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.controller.RegistroController">
    <children>
       <Text fx:id="textUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
-      <TextField fx:id="textFiledUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="332.0" />
-      <Text fx:id="textContrasenia" layoutX="213.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
-      <PasswordField fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" promptText="introducir password" />
-      <Text fx:id="textMensaje2" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Password" />
-      <PasswordField fx:id="textFieldPasswordRepit" maxHeight="-Infinity" maxWidth="-Infinity" promptText="repetir password" />
-      <Text fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Button fx:id="buttonRegistrar" mnemonicParsing="false" text="Registrar" />
+      <TextField fx:id="textFieldUsuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" promptText="Introducir usuario">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextField>
+      <Text fx:id="textContrasenia" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+      <PasswordField fx:id="textFieldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" promptText="Introducir contraseña" />
+      <Text fx:id="textContraseniaRepetir" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Contrasenia" />
+      <PasswordField fx:id="textFieldPasswordRepetir" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" promptText="Introducir contraseña" />
+      <Text fx:id="textName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+      <TextField fx:id="textFieldNombre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" promptText="Introducir nombre" />
+      <Text fx:id="textEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electronico" />
+      <TextField fx:id="textFieldEmail" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="300.0" promptText="Introducir Correo Electronico" />
+      <Text fx:id="textEmailRepetir" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Correo Electronico" />
+      <TextField fx:id="textFieldEmailRepetir" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="300.0" promptText="Introducir Correo Electronico" />
+      <Text fx:id="textMensaje" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="buttonRegistrar" mnemonicParsing="false" onAction="#onClickRegistrar" text="Registrar" />
+      <Button fx:id="onRegistroBackToLoginButton" mnemonicParsing="false" onAction="#onClickBackToLogin" text="Volver a Login">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Button>
    </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </VBox>
