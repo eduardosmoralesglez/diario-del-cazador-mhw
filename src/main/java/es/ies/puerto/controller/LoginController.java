@@ -45,6 +45,9 @@ public class LoginController extends ControladorAbstracto {
     private ComboBox comboIdioma;
 
     @FXML
+    private Button buttonLoginVolverInicio;
+
+    @FXML
     public void initialize() {
         comboIdioma.getItems().add("es");
         comboIdioma.getItems().add("en");
@@ -102,5 +105,10 @@ public class LoginController extends ControladorAbstracto {
     @FXML
     protected void openRecuperar() {
         openPantalla(openRecuperarButton, "recuperar.fxml", "Pantalla de Recuperación");
+    }
+
+    @FXML
+    protected void onClickLoginVolver() {
+        openPantalla(buttonLoginVolverInicio, "inicio.fxml", "Pantalla de Inicio");
     }
 }

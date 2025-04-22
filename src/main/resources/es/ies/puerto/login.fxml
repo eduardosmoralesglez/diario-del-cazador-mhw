@@ -27,4 +27,5 @@
       </VBox.margin>
    </Button>
    <Button fx:id="buttonLista" mnemonicParsing="false" onAction="#onClickButtonLista" text="Lista de Usuarios" />
+   <Button fx:id="buttonLoginVolverInicio" mnemonicParsing="false" onAction="#onClickLoginVolver" text="Volver a Inicio" />
 </VBox>

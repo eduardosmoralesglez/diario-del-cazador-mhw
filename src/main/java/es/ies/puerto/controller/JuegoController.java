@@ -11,8 +11,6 @@ import javafx.scene.text.Text;
 
 public class JuegoController extends ControladorAbstracto {
 
-    private Usuario usuario;
-
     @FXML
     private TextField textFieldUsuario;
 
