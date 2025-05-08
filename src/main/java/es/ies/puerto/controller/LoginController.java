@@ -89,7 +89,7 @@ public class LoginController extends ControladorAbstracto {
         }
         textFieldMensaje.setText("Usuario validado correctamente");
 
-        openPantalla(openPerfilButton, "perfil.fxml", "Pantalla del Perfil", getUsuarioActivo());
+        openPantalla(openPerfilButton, "menu.fxml", "Menu");
     }
 
     @FXML

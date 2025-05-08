@@ -7,18 +7,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="352.0" prefWidth="363.0" spacing="8.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ies.puerto.controller.PerfilController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+   minWidth="-Infinity" prefHeight="352.0" prefWidth="363.0" spacing="8.0"
+   xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="es.ies.puerto.controller.PerfilController">
    <children>
       <Text fx:id="textUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
-      <TextField fx:id="textFieldUsuario" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldUsuario" editable="false" maxHeight="-Infinity"
+         maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" />
       <Text fx:id="textContrasenia" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
-      <PasswordField fx:id="passwordFieldPassword" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" />
+      <PasswordField fx:id="passwordFieldPassword" editable="false" maxHeight="-Infinity"
+         maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" />
       <Text fx:id="textName" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-      <TextField fx:id="textFieldNombre" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="200.0" />
+      <TextField fx:id="textFieldNombre" editable="false" maxHeight="-Infinity" maxWidth="-Infinity"
+         prefHeight="24.0" prefWidth="200.0" />
       <Text fx:id="textEmail" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electronico" />
-      <TextField fx:id="textFieldEmail" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="300.0" />
-      <Button fx:id="onPerfilButtonJugar" mnemonicParsing="false" onAction="#onClickPerfilJugar" text="Jugar" />
-      <Button fx:id="onPerfilButton" mnemonicParsing="false" onAction="#onClickBackToLogin" text="Volver a Login">
+      <TextField fx:id="textFieldEmail" editable="false" maxHeight="-Infinity" maxWidth="-Infinity"
+         prefHeight="24.0" prefWidth="300.0" />
+      <Button fx:id="onPerfilButton" mnemonicParsing="false" onAction="#onClickBackToLogin"
+         text="Volver a Login">
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>

@@ -30,16 +30,8 @@ public class PerfilController extends ControladorAbstracto{
     private Button onPerfilButton;
 
     @FXML
-    private Button onPerfilButtonJugar;
-
-    @FXML
     private void onClickBackToLogin() {
-        openPantalla(onPerfilButton, "login.fxml", "Pagina de Login");
-    }
-
-    @FXML
-    private void onClickPerfilJugar() {
-        openPantalla(onPerfilButtonJugar, "juego.fxml", "Pantalla de Juego");
+        openPantalla(onPerfilButton, "menu.fxml", "Pagina de Login");
     }
 
     /**

@@ -128,7 +128,7 @@ public class ControladorAbstracto {
         try {
             Stage stage = (Stage) boton.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource(fxml));
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            Scene scene = new Scene(fxmlLoader.load(), 1050.0, 760.0);
             stage.setTitle(tituloDePagina);
             stage.setScene(scene);
             stage.show();
