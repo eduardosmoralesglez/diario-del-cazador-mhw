@@ -42,17 +42,6 @@ public class UsuarioServiceModel extends Conexion {
         
     }
 
-    public ArrayList<String> obtenerPalabrasAleatoria(String nivel) {
-        try {
-            String sql = "SELECT * FROM palabras INNER JOIN niveles ON palabras.id_nivel = niveles.id ORDER BY RAND() LIMIT 1";
-            return obtenerPalabras(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-        
-    }
-
     public ArrayList<Usuario> obtenerUsuario(String sql) throws SQLException {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         try {
@@ -105,22 +94,4 @@ public class UsuarioServiceModel extends Conexion {
             cerrar();
         }
     }
-
-    public ArrayList<String> obtenerPalabras(String sql) throws SQLException {
-        ArrayList<String> palabras = new ArrayList<String>();
-        try {
-            PreparedStatement sentencia = getConnection().prepareStatement(sql);
-            ResultSet resultado = sentencia.executeQuery();
-            while (resultado.next()) {
-                String palabraStr = resultado.getString("palabra");
-                palabras.add(palabraStr);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            cerrar();
-        }
-        return palabras;
-    }
-
 }

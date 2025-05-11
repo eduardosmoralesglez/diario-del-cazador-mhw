@@ -69,11 +69,6 @@ public class CreateMController extends ControladorAbstracto{
         String path = "src/main/resources/"+textFieldCreateNombre+".png";
         Monstruo monstruo = new Monstruo(textFieldCreateNombre.getText(), choiceBoxCreateTipo.getValue().toString(), choiceBoxCreateClase.getValue().toString(), textAreaCreateDescripcion.getText(), path);
         getUsuarioServiceModel().InsertarMonstruo(monstruo);
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            Thread.currentThread().interrupt();
-        }
         openPantalla(buttonCreateM, "creacionM.fxml", "Creación");
     }
 
