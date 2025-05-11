@@ -13,7 +13,7 @@ public class ConfigManager {
 
         private static final Properties properties = new Properties();
         static {
-           
+            
         }
 
         /**

@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class ControladorAbstracto {
 
-    static final String PATH_DB = "src/main/resources/UsuariosDB.db";
+    static final String PATH_DB = "src/main/resources/CazadoresM.db";
 
     private UsuarioServiceModel usuarioServiceModel;
 
@@ -74,20 +74,15 @@ public class ControladorAbstracto {
 
     public Properties loadIdioma(String nombreFichero, String idioma) {
         Properties properties = new Properties();
-
         if (nombreFichero == null || idioma == null) {
             return properties;
         }
-
         String path = "src/main/resources/" + nombreFichero + "-" + idioma + ".properties";
-
         File file = new File(path);
-
         if (!file.exists() || !file.isFile()) {
             System.out.println("Path:" + file.getAbsolutePath());
             return properties;
         }
-
         try {
             FileInputStream input = new FileInputStream(path);
             InputStreamReader isr = new InputStreamReader(input, "UTF-8");
@@ -95,7 +90,6 @@ public class ControladorAbstracto {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return properties;
     }
 

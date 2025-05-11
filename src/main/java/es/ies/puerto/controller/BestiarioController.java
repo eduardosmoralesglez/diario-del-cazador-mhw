@@ -15,6 +15,9 @@ public class BestiarioController extends ControladorAbstracto {
     private Button volverBestiario;
 
     @FXML
+    private Button buttonBestiarioCreate;
+
+    @FXML
     protected void onClickMonstruosPequenios() {
         openPantalla(monstruosPequenios, "monstruosPequenios.fxml", "Monstruos Pequeños");
     }
@@ -27,6 +30,11 @@ public class BestiarioController extends ControladorAbstracto {
     @FXML
     protected void onClickVolverBestiario() {
         openPantalla(volverBestiario, "menu.fxml", "Menu");
+    }
+
+    @FXML
+    protected void onClickbestiarioCreate() {
+        openPantalla(buttonBestiarioCreate, "creacionM.fxml", "Creación");
     }
 
 }

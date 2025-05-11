@@ -12,8 +12,6 @@ public class Usuario {
     private String password;
     private String nombre;
     private String email;
-    private Integer puntos;
-    private String nivel;
 
     public Usuario() {
     }
@@ -43,8 +41,6 @@ public class Usuario {
         this.password = password;
         this.nombre = nombre;
         this.email = email;
-        this.puntos = puntos;
-        this.nivel = nivel;
     }
 
     public String getUsuario() {
@@ -79,22 +75,6 @@ public class Usuario {
         this.email = email;
     }
 
-    public Integer getPuntos() {
-        return this.puntos;
-    }
-
-    public void setPuntos(Integer puntos) {
-        this.puntos = puntos;
-    }
-
-    public String getNivel() {
-        return this.nivel;
-    }
-
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -116,9 +96,7 @@ public class Usuario {
         return getUsuario() + "," +
                 getPassword() + "," +
                 getNombre() + "," +
-                getEmail() + "," +
-                getPuntos() + "," +
-                getNivel();
+                getEmail();
     }
 
 }

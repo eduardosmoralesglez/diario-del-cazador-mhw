@@ -1,6 +1,5 @@
 package es.ies.puerto.model;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +18,7 @@ public class UsuarioServiceModel extends Conexion {
 
     public Usuario obtenerUsuarioPorEmailOrUsuario(String imput) {
         try {
-            String sql = "SELECT * FROM usuarios INNER JOIN niveles ON usuarios.id_nivel = niveles.id WHERE email='"+imput+"' OR username='"+imput+"'";
+            String sql = "SELECT * FROM cazador WHERE email='"+imput+"' OR usuario='"+imput+"'";
             ArrayList<Usuario> usuarios = obtenerUsuario(sql);
             if (usuarios.isEmpty()) {
                 return null;
@@ -34,7 +33,7 @@ public class UsuarioServiceModel extends Conexion {
 
     public ArrayList<Usuario> obtenerUsaarios() {
         try {
-            String sql = "SELECT * FROM usuarios";
+            String sql = "SELECT * FROM cazador";
             return obtenerUsuario(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,15 +58,12 @@ public class UsuarioServiceModel extends Conexion {
         try {
             PreparedStatement sentencia = getConnection().prepareStatement(sql);
             ResultSet resultado = sentencia.executeQuery();
-
             while (resultado.next()) {
-                String usuarioStr = resultado.getString("user");
-                String nombreStr = resultado.getString("username");
-                String contraseniaStr = resultado.getString("password");
+                String usuarioStr = resultado.getString("usuario");
+                String nombreStr = resultado.getString("nombre");
+                String contraseniaStr = resultado.getString("contrasenia");
                 String emailStr = resultado.getString("email");
-                Integer puntosInt = resultado.getInt("puntos");
-                String nivelStr = resultado.getString("nivel");
-                Usuario usuarioModel = new Usuario(usuarioStr,contraseniaStr,nombreStr,emailStr, puntosInt, nivelStr);
+                Usuario usuarioModel = new Usuario(usuarioStr,contraseniaStr,nombreStr,emailStr);
                 usuarios.add(usuarioModel);
             }
         } catch (Exception e) {
@@ -83,7 +79,6 @@ public class UsuarioServiceModel extends Conexion {
         try {
             PreparedStatement sentencia = getConnection().prepareStatement(sql);
             ResultSet resultado = sentencia.executeQuery();
-
             while (resultado.next()) {
                 String palabraStr = resultado.getString("palabra");
                 palabras.add(palabraStr);

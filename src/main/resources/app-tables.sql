@@ -1,51 +1,63 @@
--- Eliminar la tabla usuario_rol si existe
-DROP TABLE IF EXISTS usuario_rol;
+-- Eliminar tablas 
+DROP TABLE IF EXISTS cazador_tarjeta;
+DROP TABLE IF EXISTS cazador;
+DROP TABLE IF EXISTS tarjeta_visita;
+DROP TABLE IF EXISTS monstruo;
 
--- Eliminar la tabla usuario si existe
-DROP TABLE IF EXISTS usuario;
-
--- Eliminar la tabla rol si existe
-DROP TABLE IF EXISTS rol;
-
--- Crear la tabla usuario
-CREATE TABLE usuario (
+-- Crear tabla cazador
+CREATE TABLE cazador (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     usuario TEXT NOT NULL,
     nombre TEXT NOT NULL,
     contrasenia TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL
+    email TEXT UNIQUE NOT NULL 
 );
 
--- Crear la tabla rol
-CREATE TABLE rol (
+-- Crear tabla tarjeta_visita
+CREATE TABLE tarjeta_visita (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre TEXT UNIQUE NOT NULL
+    titulo TEXT NOT NULL, 
+    rango INTEGER NOT NULL,    
+    arma TEXT NOT NULL,      
+    gremio TEXT NOT NULL  
 );
 
--- Crear la tabla intermedia usuario_rol para la relación muchos a muchos
-CREATE TABLE usuario_rol (
+-- Crear tabla intermedia
+CREATE TABLE cazador_tarjeta (
     usuario_id INTEGER,
-    rol_id INTEGER,
-    PRIMARY KEY (usuario_id, rol_id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE,
-    FOREIGN KEY (rol_id) REFERENCES rol(id) ON DELETE CASCADE
+    tarjeta_id INTEGER,  
+    PRIMARY KEY (usuario_id, tarjeta_id),
+    FOREIGN KEY (usuario_id) REFERENCES cazador(id) ON DELETE CASCADE,
+    FOREIGN KEY (tarjeta_id) REFERENCES tarjeta_visita(id) ON DELETE CASCADE
 );
 
--- Insertar roles en la tabla rol
-INSERT INTO rol (nombre) VALUES
-    ('Administrador'),
-    ('Editor'),
-    ('Usuario');
+-- Crear tabla monstruo
+CREATE TABLE monstruo (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT UNIQUE NOT NULL, 
+    tipo TEXT NOT NULL,
+    clase TEXT NOT NULL,
+    descripcion TEXT NOT NULL,  
+    imagen TEXT NOT NULL      
+);
 
--- Insertar usuarios de ejemplo
-INSERT INTO usuario (usuario, nombre, contrasenia, email) VALUES
-    ('Vegeta777', 'Samuel de Luque', 'pass123', 'juan@example.com'),
+-- Insertar datos 
+INSERT INTO monstruo (nombre, tipo, clase, descripcion, imagen) VALUES
+    ('Rathalos', 'Wyvern Volador', 'Grande', 'El monstruo alfa de el Bosque Antiguo. Un wyvern feroz que desciende sobre los invasores, atacando con garras venenosas y aliento ardiente', 'src/main/resources/Rathalos.png'),
+    ('Kelbi', 'Herbivoro', 'Pequeño', 'Pequeña ciervo carente de impacto significativo en el ecosistema, presa menor de los wyverns', 'src/main/resources/Kelbi.png'),
+    ('Nergigante', 'Wyvern Depredador', 'Anciano', 'Un terrible dragón anciano que aparece cuando otros ancianos están cerca. Su inclinación por la destrucción está bien documentada.', 'src/main/resources/Nergigante.png');
+
+INSERT INTO tarjeta_visita (titulo, rango, arma, gremio) VALUES
+    ('Cazador Experimentado', 7, 'Catana', 'Comisión de Investigación'),
+    ('Cazador Novato', 3, 'Espada y Escudo', 'Legión de Putrefacción'),
+    ('Cazador Legendario', 18, 'Hacha Cargada', 'Investigadores de lo Desconocido');
+
+INSERT INTO cazador (usuario, nombre, contrasenia, email) VALUES
+    ('vegeta777', 'Samuel de Luque', 'pass123', 'juan@example.com'),
     ('Anita856', 'Ana López', 'securePass', 'ana@example.com'),
     ('SuperCar951', 'Carlos Gómez', 'claveSegura', 'carlos@example.com');
 
--- Asignar roles a los usuarios (ejemplo)
-INSERT INTO usuario_rol (usuario_id, rol_id) VALUES
-    (1, 1), -- Juan Pérez es Administrador
-    (2, 2), -- Ana López es Editor
-    (3, 3), -- Carlos Gómez es Usuario
-    (2, 3); -- Ana López también es Usuario
+INSERT INTO cazador_tarjeta (usuario_id, tarjeta_id) VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3);
