@@ -38,7 +38,7 @@ CREATE TABLE monstruo (
     tipo TEXT NOT NULL,
     clase TEXT NOT NULL,
     descripcion TEXT NOT NULL,  
-    imagen TEXT NOT NULL      
+    imagen TEXT NOT NULL 
 );
 
 -- Insertar datos 

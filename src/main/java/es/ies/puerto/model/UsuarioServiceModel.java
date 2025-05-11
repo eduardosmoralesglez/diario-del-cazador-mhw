@@ -74,6 +74,38 @@ public class UsuarioServiceModel extends Conexion {
         return usuarios;
     }
 
+    public boolean InsertarUsuario(Usuario usuario) throws SQLException {
+        if (usuario == null) {
+            return false;
+        }
+        String sql = "INSERT INTO cazador VALUES ('"+usuario.getUsuario()+"','"+usuario.getNombre()+"','"+usuario.getPassword()+"','"+usuario.getEmail()+"')";
+        try {
+            PreparedStatement sentencia = getConnection().prepareStatement(sql);
+            sentencia.executeQuery();
+            return true;
+        } catch (Exception e) {
+            return false;
+        } finally {
+            cerrar();
+        }
+    }
+
+    public boolean InsertarMonstruo(Monstruo monstruo) throws SQLException {
+        if (monstruo == null) {
+            return false;
+        }
+        String sql = "INSERT INTO monstruo VALUES ('"+monstruo.getNombre()+"','"+monstruo.getTipo()+"','"+monstruo.getClase()+"','"+monstruo.getDescripcion()+"', '"+monstruo.getPathImagen()+"')";
+        try {
+            PreparedStatement sentencia = getConnection().prepareStatement(sql);
+            sentencia.executeQuery();
+            return true;
+        } catch (Exception e) {
+            return false;
+        } finally {
+            cerrar();
+        }
+    }
+
     public ArrayList<String> obtenerPalabras(String sql) throws SQLException {
         ArrayList<String> palabras = new ArrayList<String>();
         try {

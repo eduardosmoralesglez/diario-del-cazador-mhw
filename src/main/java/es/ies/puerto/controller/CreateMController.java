@@ -1,5 +1,8 @@
 package es.ies.puerto.controller;
 
+import java.sql.SQLException;
+
+import es.ies.puerto.model.Monstruo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -14,9 +17,6 @@ public class CreateMController extends ControladorAbstracto{
     
     @FXML
     private TextField textFieldCreateNombre;
-
-    @FXML
-    private TextField textFieldCreateId;
 
     @FXML
     private TextArea textAreaCreateDescripcion;
@@ -35,15 +35,19 @@ public class CreateMController extends ControladorAbstracto{
 
     @FXML
     public void initialize() {
-        choiceBoxCreateTipo.getItems().add("es");
-        choiceBoxCreateTipo.getItems().add("f");
+        choiceBoxCreateTipo.getItems().add("Volador");
+        choiceBoxCreateTipo.getItems().add("Nadador");
+        choiceBoxCreateTipo.getItems().add("Colmillos");
+        choiceBoxCreateTipo.getItems().add("Pajaro");
+        choiceBoxCreateTipo.getItems().add("Brutal");
 
-        choiceBoxCreateClase.getItems().add("asd");
-        choiceBoxCreateClase.getItems().add("qwerty");
+        choiceBoxCreateClase.getItems().add("Pequeño");
+        choiceBoxCreateClase.getItems().add("Grande");
+        choiceBoxCreateClase.getItems().add("Anciano");
     }
 
     @FXML
-    protected void onClickCreateM() {
+    protected void onClickCreateM() throws SQLException{
         
         if (textFieldCreateNombre == null || textFieldCreateNombre.getText().isEmpty()) {
             textCreateMText.setText("Nombre no puede ser vacio o nulo");
@@ -62,17 +66,20 @@ public class CreateMController extends ControladorAbstracto{
             return;
         }
         textCreateMText.setText("Monstruo creado correctamente");
+        String path = "src/main/resources/"+textFieldCreateNombre+".png";
+        Monstruo monstruo = new Monstruo(textFieldCreateNombre.getText(), choiceBoxCreateTipo.getValue().toString(), choiceBoxCreateClase.getValue().toString(), textAreaCreateDescripcion.getText(), path);
+        getUsuarioServiceModel().InsertarMonstruo(monstruo);
         try {
-            wait(3000);
+            Thread.sleep(1000);
         } catch (Exception e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
         openPantalla(buttonCreateM, "creacionM.fxml", "Creación");
     }
 
     @FXML
     protected void onClickCreateVolver() {
-
+        openPantalla(buttonCreateVolver, "bestiario.fxml", "Bestiario");
     }
 
 
